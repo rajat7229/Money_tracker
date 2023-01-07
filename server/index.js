@@ -9,7 +9,7 @@ money.use(express.json());
 
 money.get('/',(req,res)=>{
     res.json({
-        message: 'Server is running'
+        message: 'Server is running!!'
     });
 });
 const PORT = 4000;
