@@ -8,6 +8,7 @@ import ConnectDB from "./database/connection";
 
 import Auth from "./api/auth";
 import User from "./api/user";
+import Trans from "./api/transaction";
 
 dotenv.config();
 const money = express();
@@ -27,6 +28,7 @@ money.get('/',(req,res)=>{
 
 money.use("/auth", Auth);
 money.use("/user", User);
+money.use("/trans", Trans);
 
 const PORT = 4000;
 money.listen(PORT, () => {

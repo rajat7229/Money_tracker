@@ -6,12 +6,12 @@ const Router = express.Router();
 
 Router.get('/', passport.authenticate("jwt", {session: false}), // to make route private
  async(req, res) => {
-    try{
-        const {email, fullName, phoneNumber, address} = req.user;
-        return res.json({user: {email, fullName, phoneNumber, address}});
-    } catch(error){
-        return res.status(500).json({error: error.message});
-    }
+    try {
+        const users = await UserModel.find();
+        res.send(users);
+      } catch (error) {
+        res.status(500).send(error);
+      }
 });
 
 Router.get('/:_id', async (req, res) => {
